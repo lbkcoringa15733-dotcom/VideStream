@@ -1,0 +1,80 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Unique identifier for the user" },
+        "displayName": { "type": "string", "description": "User's display name" },
+        "photoURL": { "type": "string", "description": "URL to user's profile picture" },
+        "bio": { "type": "string", "description": "User's biography" },
+        "username": { "type": "string", "description": "Unique username" },
+        "followersCount": { "type": "number", "description": "Number of followers" },
+        "coins": { "type": "number", "description": "Virtual currency earned by watching" }
+      },
+      "required": ["uid", "username"]
+    },
+    "Video": {
+      "title": "Video",
+      "description": "Short video post",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the video" },
+        "creatorUid": { "type": "string", "description": "UID of the creator" },
+        "creatorName": { "type": "string", "description": "Name of the creator" },
+        "creatorPhoto": { "type": "string", "description": "Photo of the creator" },
+        "videoUrl": { "type": "string", "description": "URL to the video file" },
+        "thumbnailUrl": { "type": "string", "description": "URL to the video thumbnail" },
+        "description": { "type": "string", "description": "Video caption/description" },
+        "likesCount": { "type": "number", "description": "Number of likes" },
+        "commentsCount": { "type": "number", "description": "Number of comments" },
+        "sharesCount": { "type": "number", "description": "Number of shares" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+      },
+      "required": ["creatorUid", "videoUrl", "createdAt"]
+    },
+    "Like": {
+      "title": "Like",
+      "description": "User like on a video",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "UID of the user who liked" },
+        "videoId": { "type": "string", "description": "ID of the video liked" }
+      },
+      "required": ["userId", "videoId"]
+    },
+    "Comment": {
+      "title": "Comment",
+      "description": "User comment on a video",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the comment" },
+        "userId": { "type": "string", "description": "UID of the commenter" },
+        "userName": { "type": "string", "description": "Name of the commenter" },
+        "userPhoto": { "type": "string", "description": "Photo of the commenter" },
+        "text": { "type": "string", "description": "Comment text" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+      },
+      "required": ["userId", "text", "createdAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "videos/{videoId}": {
+      "schema": "Video",
+      "description": "Video posts"
+    },
+    "videos/{videoId}/likes/{userId}": {
+      "schema": "Like",
+      "description": "Likes on a specific video"
+    },
+    "videos/{videoId}/comments/{commentId}": {
+      "schema": "Comment",
+      "description": "Comments on a specific video"
+    }
+  }
+}

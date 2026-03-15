@@ -1,0 +1,8 @@
+{
+  "name": "Copy of VibeStream",
+  "description": "Troque check-ins, vídeos e minijogos por bônus reais!\n\nEstá procurando por conteúdos em vídeo tão incríveis quanto os do TikTok, Twitter, Instagram e Telegram? O VideStream é a comunidade de vídeos curtos que você precisa. Aqui, você pode seguir todos os vídeos dos criadores que adora, assistir transmissões ao vivo de jogos populares, como Free Fire e GTA, e compartilhar qualquer conteúdo com seus amigos a qualquer momento\n\nSe você quer mais,o VideStream oferece recompensas reais no uso diário, e estamos anciosos pela sua exploração.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
